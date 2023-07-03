@@ -14,7 +14,7 @@ const productList = document.getElementById("product-list");
 const cartList=document.getElementById("cart-list");
 const clearCartBtn=document.getElementById("clear-cart-btn");
 
-let cartItems= JSON.parse(sessionStorage.getItem("CItems"))||[];
+let cartItems= JSON.parse(sessionStorage.getItem("eq"))||[];
 
 // Render product list
 function renderProducts() {
@@ -46,7 +46,7 @@ function addToCart(productId) {
       cartItems.push(products[i]);
     }
   }
-  sessionStorage.setItem("CItems",JSON.stringify(cartItems));
+  sessionStorage.setItem("eq",JSON.stringify(cartItems));
   renderCart();
 }
 
@@ -75,7 +75,7 @@ cartList.addEventListener("click",(event)=>{
 
 clearCartBtn.addEventListener("click", (event)=>{
   cartItems=[];
-  sessionStorage.removeItem("CItems");
+  sessionStorage.removeItem("eq");
   renderCart();
 })
 
